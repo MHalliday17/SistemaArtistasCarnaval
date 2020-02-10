@@ -3,6 +3,7 @@ package br.unit.view;
 import java.util.Scanner;
 
 import br.unit.controller.ArtistaController;
+import br.unit.controller.Ordenacao;
 import br.unit.model.Artista;
 
 
@@ -73,6 +74,8 @@ public class Main_teste {
 			String aC10 = "Recife";
 			String aVT10 = "Sim";
 			artistasController.inserir(aN10, aB10, aC10, aVT10);
+
+
 
 
 
@@ -150,27 +153,28 @@ public class Main_teste {
 						try {
 							sc.nextLine();
 							while(true) {
-							
+
 								String artAlterar = sc.nextLine();
 
 								if (artistasController.consultar(artAlterar) != null) {
+										tela.pularLinha();
 									System.out.println(artistasController.consultar(artAlterar));
+									tela.pularLinha();
+									tela.telaAlterarRegistro2();
 									
 									String artTorcaNome = sc.nextLine();
 									String artTrocaAno = sc.nextLine();
 									String artTrocaCidade = sc.nextLine();
 									String artTrocaVaiTOcar = sc.nextLine();
 									artistasController.alterar(artTorcaNome, artTrocaAno, artTrocaCidade, artTrocaVaiTOcar);
-									
 									break;
+
 								} else {
 									tela.linha("-");
 									tela.msgArtNaoENcontrado();
 								}
 							}
-
-							
-break;
+							break;
 						}catch(Exception e) {
 
 							if(e.getMessage()!= null) {
@@ -181,10 +185,10 @@ break;
 							}
 						}
 					}
+					
 					System.out.println("");
 					tela.linha("-");
 					tela.msgModificarOutroArtista();
-
 					fechar = sc.next().charAt(0);
 				}while(fechar == 's' || fechar == 'S');
 				break;
@@ -194,7 +198,7 @@ break;
 					System.out.println("Digite o cpf/matr�cula do leitor que deseja remover");
 					while (true) {
 						try {
-sc.nextLine();
+							sc.nextLine();
 							String artDelNome = sc.nextLine();
 							artistasController.remover(artDelNome);
 							sc.nextLine();

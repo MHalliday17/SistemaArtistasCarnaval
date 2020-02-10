@@ -2,7 +2,10 @@ package br.unit.view;
 
 public class Telas {
 	private int largura = 110;
-
+	//PULAR LINHA
+	public void pularLinha() {
+		System.out.println("");
+	}
 	//DESENHA UMA LINHA
 	public void linha(String simbolo) {
 
@@ -11,6 +14,7 @@ public class Telas {
 		}
 		System.out.println("");
 	}
+	
 	//ADICIONA TEXTO ENTRE AS LINHAS
 	public void titulo(String nome, String simbolo) {
 		int x = nome.length();
@@ -82,6 +86,10 @@ public class Telas {
 		linha("=");
 		System.out.println("\nDigite o nome do artista cadastrado que vc deseja alterar");
 	}
+	//TELA DE ALTERAÇÃO DE REGISTRO
+		public void telaAlterarRegistro2() {
+			System.out.println("Digite Respectivamente o nome, ano de nascimento, cidade e se vai tocar");
+		}
 	
 	
 	

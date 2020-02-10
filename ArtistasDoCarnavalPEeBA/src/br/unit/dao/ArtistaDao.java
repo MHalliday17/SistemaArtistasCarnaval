@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import br.unit.model.Artista;
 
 public class ArtistaDao {
-	ArrayList<Artista> artistas;
+	public ArrayList<Artista> artistas;
 
 	public ArtistaDao() {
 		artistas = new ArrayList<Artista>();
@@ -68,5 +68,6 @@ public class ArtistaDao {
 	public void inserirTodos(ArrayList<Artista> artistaList) {
 		this.artistas = artistaList;
 	}
+	
 	
 }

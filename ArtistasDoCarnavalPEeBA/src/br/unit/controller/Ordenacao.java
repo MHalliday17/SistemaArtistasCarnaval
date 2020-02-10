@@ -36,9 +36,9 @@ public class Ordenacao {
 		
 		//aux = vetor.get(i);
 		aux.add(vetor.get(i));
-		//vetor.set(i, vetor.get(j));
+		vetor.set(i, vetor.get(j));
 		vetor.set(j, aux.get(0));
-		vetor.set(j, aux);
+		//vetor.set(j, aux);
 	}
 
 }

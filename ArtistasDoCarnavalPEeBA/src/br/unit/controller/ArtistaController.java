@@ -73,4 +73,5 @@ public class ArtistaController {
 		 artistasDao.inserirTodos(artistaList);
 	 }
 	
+	
 }
