@@ -20,7 +20,7 @@ public class ArtistaDao {
 	//RETRIVE
 	public Artista consultar(String nome) {
 		for (Artista art: artistas) {
-			if(art.getNome().equals(nome)) {
+			if(art.getNome().equalsIgnoreCase(nome)) {
 				return art;
 			}
 		}

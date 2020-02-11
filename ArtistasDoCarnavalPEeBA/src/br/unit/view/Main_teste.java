@@ -21,13 +21,13 @@ public class Main_teste {
 			String aVT1 = "Não";
 			artistasController.inserir(aN1, aB1, aC1, aVT1);
 
-			String aN2 = "Alceu Paiva Valença";
+			String aN2 = "Alceu Valença";
 			String aB2 = "1946";
 			String aC2 = "São Bento do una";
 			String aVT2 = "Sim";
 			artistasController.inserir(aN2, aB2, aC2, aVT2);
 
-			String aN3 = "Almir Rouche Cavalcante de Lima";
+			String aN3 = "Almir Rouche";
 			String aB3 = "1969";
 			String aC3 = "Tgarassul";
 			String aVT3 = "Sim";
@@ -39,37 +39,37 @@ public class Main_teste {
 			String aVT4 = "Sim";
 			artistasController.inserir(aN4, aB4, aC4, aVT4);
 
-			String aN5 = "Oswaldo Lenine Macedo Pimentel";
+			String aN5 = "Lenine";
 			String aB5 = "1959";
 			String aC5 = "Recife";
 			String aVT5 = "Sim";
 			artistasController.inserir(aN5, aB5, aC5, aVT5);
 
-			String aN6 = "Elba Maria Nunes Ramalho";
+			String aN6 = "Elba Ramalho";
 			String aB6 = "1951";
 			String aC6 = "Conceição";
 			String aVT6 = "Sim";
 			artistasController.inserir(aN6, aB6, aC6, aVT6);
 
-			String aN7 = "Reginaldo Rodrigues dos Santos";
+			String aN7 = "Reginaldo Rossi";
 			String aB7 = "1943";
 			String aC7 = "Recife";
 			String aVT7 = "Não";
 			artistasController.inserir(aN7, aB7, aC7, aVT7);
 
-			String aN8 = "Francisco de Assis França";
+			String aN8 = "Chico Science";
 			String aB8 = "1966";
 			String aC8 = "Recife";
 			String aVT8 = "Não";
 			artistasController.inserir(aN8, aB8, aC8, aVT8);
 
-			String aN9 = "Otto Maximiliano Pereira de Cordeiro Ferreira";
+			String aN9 = "Otto";
 			String aB9 = "1968";
 			String aC9 = "Belo Jardim";
 			String aVT9 = "Sim";
 			artistasController.inserir(aN9, aB9, aC9, aVT9);
 
-			String aN10 = "Sérgio Roberto veloso de Oliveira";
+			String aN10 = "Siba";
 			String aB10 = "1969";
 			String aC10 = "Recife";
 			String aVT10 = "Sim";
@@ -150,6 +150,7 @@ public class Main_teste {
 					tela.telaAlterarRegistro();
 					System.out.println("");
 					while(true) {
+					
 						try {
 							sc.nextLine();
 							while(true) {
@@ -172,6 +173,7 @@ public class Main_teste {
 								} else {
 									tela.linha("-");
 									tela.msgArtNaoENcontrado();
+									break;
 								}
 							}
 							break;
@@ -184,6 +186,7 @@ public class Main_teste {
 								System.out.println("Dados Invalidos digite novamente o nome");
 							}
 						}
+						break;
 					}
 					
 					System.out.println("");
@@ -195,26 +198,27 @@ public class Main_teste {
 
 			case 4:
 				do {
-					System.out.println("Digite o cpf/matr�cula do leitor que deseja remover");
+					System.out.println("Digite o nome do artista que"
+							+ " deseja remover");
 					while (true) {
 						try {
 							sc.nextLine();
 							String artDelNome = sc.nextLine();
 							artistasController.remover(artDelNome);
-							sc.nextLine();
+						
 							break;
 						} catch (Exception e) {
 							sc.nextLine();
 							if (e.getMessage() != null) {
 								System.out.println(e.getMessage()
-										+ " Digite novamente o cpf/matr�cula do leitor que deseja remover: ");
+										+ " Digite novamente o nome do artista que deseja remover: ");
 							} else {
 								System.out.println(
-										"Dados inv�lidos! Digite novamente o cpf/matr�cula do leitor que deseja remover: ");
+										"Dados inválidos! Digite novamente nome do artista que deseja remover: ");
 							}
 						}
 					}
-					System.out.println("Deseja remover mais algum leitor cadastrado? (s/n)");
+					System.out.println("Deseja remover mais algum artista cadastrado? (s/n)");
 					fechar = sc.next().charAt(0);
 				} while (fechar == 's' || fechar == 'S');
 				break;
