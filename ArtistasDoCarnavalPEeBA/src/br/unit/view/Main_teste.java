@@ -224,7 +224,9 @@ public class Main_teste {
 				tela.pularLinha();
 				tela.linha("-");
 				tela.msgModificarOutroArtista();
+				tela.linha("-");
 				fechar = sc.next().charAt(0);
+				sc.nextLine();
 				}while(fechar == 's' || fechar == 'S');
 				break;
 
