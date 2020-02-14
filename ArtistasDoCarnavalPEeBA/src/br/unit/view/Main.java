@@ -146,12 +146,8 @@ public class Main {
 
 					tela.msgCadOutroArtista();
 					fechar = sc.next().charAt(0);
-
-
 				} 
-				
-				
-				
+
 				while (fechar == 's' || fechar == 'S');
 				break;
 
@@ -172,7 +168,6 @@ public class Main {
 				tela.telaAlterarRegistro();
 				tela.pularLinha();
 				while(true) {
-
 					try {
 						//sc.nextLine();
 						while(true) {
@@ -186,7 +181,7 @@ public class Main {
 								tela.linha("-");
 								tela.pularLinha();
 
-							
+
 								String artTorcaNome = artAlterar;
 								tela.pularLinha();
 
@@ -223,30 +218,19 @@ public class Main {
 					}
 					break;
 				}
-
-			
-				
-				
-				
-				
-				
 				int f = 0;
 				while(f == 0) {
 					if(swchk1 == 6) {
 						fechar = 'n';
 						break;
-
 					}else {
-
 						tela.pularLinha();
 						tela.linha("-");
 						tela.msgModificarOutroArtista();
-						
 						fechar = sc.next().charAt(0);
 						sc.nextLine();
 						if(fechar == 's' ||fechar=='S') {
 							f=1;
-
 							break;
 						}
 						if(fechar == 'n' || fechar == 'N') {
@@ -259,19 +243,14 @@ public class Main {
 						if(fechar != 'n' ||fechar != 'N') {
 							f=0;
 						}
-
 					}
 				}
-				
 				}while(fechar == 's' || fechar == 'S');
 				break;
 
 			case 4:
-				
 				do {
 					tela.pularLinha();
-					
-					
 					while (true) {
 						try {
 							tela.telaRemoverArtista();
@@ -279,32 +258,24 @@ public class Main {
 							artistasController.remover(artDelNome);
 							break;
 						} catch (Exception e) {
-							
 							if (e.getMessage() != null) {
 								tela.linha("-");
 								tela.titulo(e.getMessage() +" "+ "Digite novamente o nome do artista que deseja remover:"  , "-");
 								tela.linha("-");
 								tela.pularLinha();
-										
+
 							} else {
 								System.out.println(
 										"Dados inválidos! Digite novamente nome do artista que deseja remover: ");
 							}
 						}
 					}
-					
-					
-					
-					
-					
 					int z = 0;
 					while(z == 0) {
 						if(swchk1 == 6) {
 							fechar = 'n';
 							break;
-
 						}else {
-
 							tela.pularLinha();
 							tela.linha("-");
 							tela.msgRemoverOutroArtista();
@@ -312,7 +283,6 @@ public class Main {
 							sc.nextLine();
 							if(fechar == 's' ||fechar=='S') {
 								z=1;
-
 								break;
 							}
 							if(fechar == 'n' || fechar == 'N') {
@@ -325,19 +295,15 @@ public class Main {
 							if(fechar != 'n' ||fechar != 'N') {
 								z=0;
 							}
-
 						}
 					}
-					
 				} while (fechar == 's' || fechar == 'S');
 				break;
-
 			case 5:
 				tela.pularLinha();
 				do {
 					while (true) {
 						try {
-
 							tela.telaOrdenarfiltros();
 							swchk1 = sc.nextInt();
 							tela.pularLinha();
@@ -352,39 +318,29 @@ public class Main {
 					case 1:
 						tela.telaOrdenadoPorNome();
 						artistasController.imprimirFila(1);
-						
 						break;
 					case 2:
 						tela.telaOrdenadoPorNascimento();
 						artistasController.imprimirFila(2);
-						
 						break;
 					case 3:
 						tela.telaOrdenadoPorCidade();
 						artistasController.imprimirFila(3);
-					
 						break;
 					case 4:
 						tela.telaOrdenadoPorVaiTocar();
 						artistasController.imprimirFila(4);
 						break;
 					default:
-						
 						break;
 					}
-					
-					
-					
 					
 					int y = 0;
 					while(y == 0) {
 						if(swchk1 == 6) {
 							fechar = 'n';
 							break;
-
 						}else {
-
-
 							sc.nextLine();
 							tela.pularLinha();
 							tela.linha("-");
@@ -407,7 +363,6 @@ public class Main {
 							if(fechar != 'n' ||fechar != 'N') {
 								y=0;
 							}
-
 						}
 					}
 				}while(fechar == 's'|| fechar == 'S');
@@ -415,7 +370,6 @@ public class Main {
 			case 6:
 				break;
 
-				
 			}
 			int x = 0;
 			while(x == 0) {
@@ -425,14 +379,12 @@ public class Main {
 
 				}else {
 
-
 					tela.linha("-");
 					tela.msgRetornarTelaInicial();
-					
+
 					fechar = sc.next().charAt(0);
 					if(fechar == 's' ||fechar=='S') {
 						x=1;
-
 						break;
 					}
 					if(fechar == 'n' || fechar == 'N') {
@@ -445,14 +397,12 @@ public class Main {
 					if(fechar != 'n' ||fechar != 'N') {
 						x=0;
 					}
-
 				}
 			}
 
 		} while (fechar == 's' || fechar == 'S');
 		tela.pularLinha();
 		sc.close();
-		System.out.println("finalizado"
-				+ "");
+		System.out.println("finalizado");
 	}
 }
