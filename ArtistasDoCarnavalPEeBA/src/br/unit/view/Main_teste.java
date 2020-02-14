@@ -77,7 +77,7 @@ public class Main_teste {
 		} catch (Exception e) {
 			if (e.getMessage() != null) {
 				System.out.println(e.getMessage()
-						+ " Digite novamente as informações do artista: ");
+						+ " DIGITE NOVAMENTE AS INFORMAÇÕES DO ARTISTA");
 			} 
 			else {
 				System.out.println(
@@ -102,7 +102,7 @@ public class Main_teste {
 					sc.next();
 				}
 			}
-			
+			sc.nextLine();
 			switch (swchk1) {
 			case 1:
 
@@ -110,7 +110,7 @@ public class Main_teste {
 					tela.telaCadastrar();
 					while (true) {
 						try {
-							sc.nextLine();
+							//sc.nextLine();
 							tela.telaCadastrarNome();
 							String artistaNome = sc.nextLine();
 							tela.pularLinha();
@@ -135,7 +135,7 @@ public class Main_teste {
 							if (e.getMessage() != null) {
 								tela.pularLinha();
 								tela.linha("-");
-								tela.titulo(e.getMessage() + "Digite novamente as informações do artista:" , "-");
+								tela.titulo(e.getMessage() + "DIGITE NOVAMENTE AS INFORMAÇÕES DO ARTISTA" , "-");
 								tela.linha("-");
 								tela.pularLinha();
 							} 
@@ -172,7 +172,7 @@ public class Main_teste {
 				while(true) {
 
 					try {
-						sc.nextLine();
+						//sc.nextLine();
 						while(true) {
 
 							String artAlterar = sc.nextLine();
@@ -261,7 +261,6 @@ public class Main_teste {
 			case 5:
 				tela.pularLinha();
 				do {
-					int swchk2;
 					while (true) {
 						try {
 
@@ -272,7 +271,7 @@ public class Main_teste {
 
 						} catch (Exception e) {
 							tela.msgDigitoInvalido();
-							sc.next();
+							break;
 						}
 					}
 					switch (swchk1) {
@@ -295,18 +294,23 @@ public class Main_teste {
 						tela.telaOrdenadoPorNascimento();
 						artistasController.imprimirFila(4);
 						break;
-
+					default:
+						
+						break;
 					}
+					sc.nextLine();
 					tela.pularLinha();
 					tela.linha("-");
-					tela.msgRemoverOutroArtista();
+					tela.msgReordernar();
+					tela.pularLinha();
 					fechar = sc.next().charAt(0);
 					tela.pularLinha();
-				}while(fechar == 's');
+				}while(fechar == 's'|| fechar == 'S');
 				break;
 			case 6:
 				break;
 
+				
 			}
 			int x = 0;
 			while(x == 0) {

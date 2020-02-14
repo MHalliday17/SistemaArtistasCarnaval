@@ -25,7 +25,7 @@ public class ArtistaController {
 		artista.setVaiTocar(vaiTocar);
 
 		if(artistasDao.existe(nome)) {
-			throw new Exception("Artista ja cadastrado!");
+			throw new Exception("ARTISTA JA CADASTRADO!");
 		} else { 
 			artistasDao.inserir(artista);
 		}

@@ -203,4 +203,10 @@ public class Telas {
 		pularLinha();
 	}
 	
+	//MSG REMOVER OUTRO ARTISTA
+		public void msgReordernar() {
+			titulo("VOCE DESEJA ECOLHER OUTRA ORDEM? (S/N)", "-");
+			linha("-");
+		}
+	
 }
