@@ -351,6 +351,7 @@ public class Main {
 
 		} while (fechar == 's' || fechar == 'S');
 		tela.pularLinha();
+		sc.close();
 		System.out.println("finalizado"
 				+ "");
 	}
