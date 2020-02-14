@@ -149,6 +149,9 @@ public class Main {
 
 
 				} 
+				
+				
+				
 				while (fechar == 's' || fechar == 'S');
 				break;
 
@@ -221,12 +224,45 @@ public class Main {
 					break;
 				}
 
-				tela.pularLinha();
-				tela.linha("-");
-				tela.msgModificarOutroArtista();
-				tela.linha("-");
-				fechar = sc.next().charAt(0);
-				sc.nextLine();
+			
+				
+				
+				
+				
+				
+				int f = 0;
+				while(f == 0) {
+					if(swchk1 == 6) {
+						fechar = 'n';
+						break;
+
+					}else {
+
+						tela.pularLinha();
+						tela.linha("-");
+						tela.msgModificarOutroArtista();
+						
+						fechar = sc.next().charAt(0);
+						sc.nextLine();
+						if(fechar == 's' ||fechar=='S') {
+							f=1;
+
+							break;
+						}
+						if(fechar == 'n' || fechar == 'N') {
+							f=1;
+							break;
+						}
+						if(fechar != 's' ||fechar != 'S') {
+							f=0;
+						}
+						if(fechar != 'n' ||fechar != 'N') {
+							f=0;
+						}
+
+					}
+				}
+				
 				}while(fechar == 's' || fechar == 'S');
 				break;
 
@@ -256,11 +292,43 @@ public class Main {
 							}
 						}
 					}
-					tela.pularLinha();
-					tela.linha("-");
-					tela.msgRemoverOutroArtista();
-					fechar = sc.next().charAt(0);
-					sc.nextLine();
+					
+					
+					
+					
+					
+					int z = 0;
+					while(z == 0) {
+						if(swchk1 == 6) {
+							fechar = 'n';
+							break;
+
+						}else {
+
+							tela.pularLinha();
+							tela.linha("-");
+							tela.msgRemoverOutroArtista();
+							fechar = sc.next().charAt(0);
+							sc.nextLine();
+							if(fechar == 's' ||fechar=='S') {
+								z=1;
+
+								break;
+							}
+							if(fechar == 'n' || fechar == 'N') {
+								z=1;
+								break;
+							}
+							if(fechar != 's' ||fechar != 'S') {
+								z=0;
+							}
+							if(fechar != 'n' ||fechar != 'N') {
+								z=0;
+							}
+
+						}
+					}
+					
 				} while (fechar == 's' || fechar == 'S');
 				break;
 
@@ -304,13 +372,44 @@ public class Main {
 						
 						break;
 					}
-					sc.nextLine();
-					tela.pularLinha();
-					tela.linha("-");
-					tela.msgReordernar();
-					tela.pularLinha();
-					fechar = sc.next().charAt(0);
-					tela.pularLinha();
+					
+					
+					
+					
+					int y = 0;
+					while(y == 0) {
+						if(swchk1 == 6) {
+							fechar = 'n';
+							break;
+
+						}else {
+
+
+							sc.nextLine();
+							tela.pularLinha();
+							tela.linha("-");
+							tela.msgReordernar();
+							tela.pularLinha();
+							fechar = sc.next().charAt(0);
+							tela.pularLinha();
+							if(fechar == 's' ||fechar=='S') {
+								y=1;
+
+								break;
+							}
+							if(fechar == 'n' || fechar == 'N') {
+								y=1;
+								break;
+							}
+							if(fechar != 's' ||fechar != 'S') {
+								y=0;
+							}
+							if(fechar != 'n' ||fechar != 'N') {
+								y=0;
+							}
+
+						}
+					}
 				}while(fechar == 's'|| fechar == 'S');
 				break;
 			case 6:
@@ -329,6 +428,7 @@ public class Main {
 
 					tela.linha("-");
 					tela.msgRetornarTelaInicial();
+					
 					fechar = sc.next().charAt(0);
 					if(fechar == 's' ||fechar=='S') {
 						x=1;
