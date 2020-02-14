@@ -74,11 +74,6 @@ public class Main_teste {
 			String aC10 = "Recife";
 			String aVT10 = "Sim";
 			artistasController.inserir(aN10, aB10, aC10, aVT10);
-
-
-
-
-
 		} catch (Exception e) {
 			if (e.getMessage() != null) {
 				System.out.println(e.getMessage()
@@ -92,123 +87,161 @@ public class Main_teste {
 
 		char fechar = 's';
 
+
 		do {
 			int swchk1;
 			while (true) {
 				try {
+
 					tela.telaMenuInicial();
 					swchk1 = sc.nextInt();
 					break;
 
 				} catch (Exception e) {
 					tela.msgDigitoInvalido();
+					sc.next();
 				}
 			}
+			
 			switch (swchk1) {
 			case 1:
+
 				do {
 					tela.telaCadastrar();
 					while (true) {
 						try {
 							sc.nextLine();
+							tela.telaCadastrarNome();
 							String artistaNome = sc.nextLine();
+							tela.pularLinha();
+
+							tela.telaCadastrarNascimento();
 							String artistaNascimento = sc.nextLine();
+							tela.pularLinha();
+
+							tela.telaCadastrarCidade();
 							String artistaCidade = sc.nextLine();
+							tela.pularLinha();
+
+							tela.telaCadastrarVaiTocar();
 							String artistaVaiTocar = sc.nextLine();
+							tela.pularLinha();
+
 							artistasController.inserir(artistaNome, artistaNascimento, artistaCidade, artistaVaiTocar);
+
 							tela.linha("-");
 							break;
 						} catch (Exception e) {
 							if (e.getMessage() != null) {
-								System.out.println(e.getMessage()
-										+ " Digite novamente as informações do artista: ");
+								tela.pularLinha();
+								tela.linha("-");
+								tela.titulo(e.getMessage() + "Digite novamente as informações do artista:" , "-");
+								tela.linha("-");
+								tela.pularLinha();
 							} 
 							else {
-								System.out.println(
-										"Dados inv�lidos! Digite novamente o nome, cpf e logradouro do leitor: ");
+								tela.msgDadosInvalidos();
 							}
 						}
-
 					}
 
 					tela.msgCadOutroArtista();
 					fechar = sc.next().charAt(0);
 
-				} while (fechar == 's' || fechar == 'S');
+
+				} 
+				while (fechar == 's' || fechar == 'S');
 				break;
 
 			case 2:
+				tela.pularLinha();
+
 				tela.telaImprimirArtCadastrados();
 				for(Artista artista: artistasController.retornarTodos()) {
+					tela.linha("-");
 					System.out.println(artista);
 				}
-				System.out.println("");
+				tela.linha("-");
+				tela.pularLinha();
 				break;
 
 			case 3:
-				do {
-					tela.telaAlterarRegistro();
-					System.out.println("");
-					while(true) {
-					
-						try {
-							sc.nextLine();
-							while(true) {
+				do {tela.pularLinha();
+				tela.telaAlterarRegistro();
+				tela.pularLinha();
+				while(true) {
 
-								String artAlterar = sc.nextLine();
+					try {
+						sc.nextLine();
+						while(true) {
 
-								if (artistasController.consultar(artAlterar) != null) {
-										tela.pularLinha();
-									System.out.println(artistasController.consultar(artAlterar));
-									tela.pularLinha();
-									tela.telaAlterarRegistro2();
-									
-									String artTorcaNome = sc.nextLine();
-									String artTrocaAno = sc.nextLine();
-									String artTrocaCidade = sc.nextLine();
-									String artTrocaVaiTOcar = sc.nextLine();
-									artistasController.alterar(artTorcaNome, artTrocaAno, artTrocaCidade, artTrocaVaiTOcar);
-									break;
+							String artAlterar = sc.nextLine();
 
-								} else {
-									tela.linha("-");
-									tela.msgArtNaoENcontrado();
-									break;
-								}
-							}
-							break;
-						}catch(Exception e) {
+							if (artistasController.consultar(artAlterar) != null) {
+								tela.pularLinha();
+								tela.linha("-");
+								System.out.println(artistasController.consultar(artAlterar));
+								tela.linha("-");
+								tela.pularLinha();
 
-							if(e.getMessage()!= null) {
-								System.out.println(e.getMessage()
-										+ "Digite o nome do artista novamente");	
+							
+								String artTorcaNome = artAlterar;
+								tela.pularLinha();
+
+								tela.telaCadastrarNascimento();
+								String artTrocaAno = sc.nextLine();
+								tela.pularLinha();
+
+								tela.telaCadastrarCidade();
+								String artTrocaCidade = sc.nextLine();
+								tela.pularLinha();
+
+								tela.telaCadastrarVaiTocar();
+								String artTrocaVaiTOcar = sc.nextLine();
+								tela.pularLinha();
+
+								artistasController.alterar(artTorcaNome, artTrocaAno, artTrocaCidade, artTrocaVaiTOcar);
+								break;
+
 							} else {
-								System.out.println("Dados Invalidos digite novamente o nome");
+								tela.linha("-");
+								tela.msgArtNaoENcontrado();
+								break;
 							}
 						}
 						break;
+					}catch(Exception e) {
+
+						if(e.getMessage()!= null) {
+							System.out.println(e.getMessage()
+									+ "Digite o nome do artista novamente");	
+						} else {
+							System.out.println("Dados Invalidos digite novamente o nome");
+						}
 					}
-					
-					System.out.println("");
-					tela.linha("-");
-					tela.msgModificarOutroArtista();
-					fechar = sc.next().charAt(0);
+					break;
+				}
+
+				tela.pularLinha();
+				tela.linha("-");
+				tela.msgModificarOutroArtista();
+				fechar = sc.next().charAt(0);
 				}while(fechar == 's' || fechar == 'S');
 				break;
 
 			case 4:
+				
 				do {
-					System.out.println("Digite o nome do artista que"
-							+ " deseja remover");
+					tela.pularLinha();
+					tela.telaRemoverArtista();
+					
 					while (true) {
 						try {
-							sc.nextLine();
 							String artDelNome = sc.nextLine();
 							artistasController.remover(artDelNome);
-						
 							break;
 						} catch (Exception e) {
-							sc.nextLine();
+							
 							if (e.getMessage() != null) {
 								System.out.println(e.getMessage()
 										+ " Digite novamente o nome do artista que deseja remover: ");
@@ -218,20 +251,115 @@ public class Main_teste {
 							}
 						}
 					}
-					System.out.println("Deseja remover mais algum artista cadastrado? (s/n)");
+					tela.pularLinha();
+					tela.linha("-");
+					tela.msgRemoverOutroArtista();
 					fechar = sc.next().charAt(0);
 				} while (fechar == 's' || fechar == 'S');
 				break;
 
 			case 5:
+				tela.pularLinha();
+				do {
+					int swchk2;
+					while (true) {
+						try {
 
+							tela.telaOrdenarfiltros();
+							swchk1 = sc.nextInt();
+							tela.pularLinha();
+							break;
+
+						} catch (Exception e) {
+							tela.msgDigitoInvalido();
+							sc.next();
+						}
+					}
+					switch (swchk1) {
+					case 1:
+						tela.telaOrdenadoPorNome();
+						
+						artistasController.imprimirFila(1);
+						
+						tela.pularLinha();
+						break;
+					case 2:
+						tela.telaOrdenadoPorNascimento();
+						artistasController.ordenar(0, artistasController.retornarTodos().size()-1, artistasController.retornarTodos(), 2);
+						for(Artista art: artistasController.retornarTodos()) {
+							tela.linha("-");
+							System.out.println(art);
+						}
+						tela.linha("-");
+						tela.pularLinha();
+						break;
+					case 3:
+						tela.telaOrdenadoPorNascimento();
+						artistasController.ordenar(0, artistasController.retornarTodos().size()-1, artistasController.retornarTodos(), 3);
+						for(Artista art: artistasController.retornarTodos()) {
+							tela.linha("-");
+							System.out.println(art);
+						}
+						tela.linha("-");
+						tela.pularLinha();
+						break;
+					case 4:
+						tela.telaOrdenadoPorNascimento();
+						artistasController.ordenar(0, artistasController.retornarTodos().size()-1, artistasController.retornarTodos(), 4);
+						for(Artista art: artistasController.retornarTodos()) {
+							tela.linha("-");
+							System.out.println(art.getVaiTocar() + " " + art);
+						}
+						tela.linha("-");
+						tela.pularLinha();
+						break;
+
+					}
+					tela.pularLinha();
+					tela.linha("-");
+					tela.msgRemoverOutroArtista();
+					fechar = sc.next().charAt(0);
+					tela.pularLinha();
+				}while(fechar == 's');
+				break;
+			case 6:
 				break;
 
 			}
+			int x = 0;
+			while(x == 0) {
+				if(swchk1 == 6) {
+					fechar = 'n';
+					break;
 
-			tela.linha("-");
-			tela.msgRetornarTelaInicial();
-			fechar = sc.next().charAt(0);
+				}else {
+
+
+					tela.linha("-");
+					tela.msgRetornarTelaInicial();
+					fechar = sc.next().charAt(0);
+					if(fechar == 's' ||fechar=='S') {
+						x=1;
+
+						break;
+					}
+					if(fechar == 'n' || fechar == 'N') {
+						x=1;
+						break;
+					}
+					if(fechar != 's' ||fechar != 'S') {
+						x=0;
+					}
+					if(fechar != 'n' ||fechar != 'N') {
+						x=0;
+					}
+
+				}
+			}
+
 		} while (fechar == 's' || fechar == 'S');
+		tela.pularLinha();
+		System.out.println("finalizado"
+				+ "");
 	}
 }

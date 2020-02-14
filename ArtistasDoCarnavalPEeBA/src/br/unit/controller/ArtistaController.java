@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 import br.unit.dao.ArtistaDao;
 import br.unit.model.Artista;
+import br.unit.model.Fila;
 
 
 public class ArtistaController {
 	ArtistaDao artistasDao;
+	Fila fila = new Fila();
 
 	//CONSTRUTOR
 	public ArtistaController() {
@@ -43,6 +45,11 @@ public class ArtistaController {
 		}
 	}
 	
+	
+	
+	
+	
+
 	//ALTERAR SE EXISTIR
 	 public void alterar(String nome, String nascimento, String cidade, String vaiTocar) throws Exception {
 		 Artista artista = new Artista();
@@ -73,5 +80,16 @@ public class ArtistaController {
 		 artistasDao.inserirTodos(artistaList);
 	 }
 	
+	 public void ordenar(int idxInicio, int idxFim, ArrayList<Artista> vetor, int ord) {
+		 artistasDao.quicksort(idxInicio, idxFim, vetor, ord);
+	 }
+		
+		public void imprimirFila(int tipo) {
+			ordenar(0, retornarTodos().size()-1, retornarTodos(),tipo);
+			for(Artista art: retornarTodos()) {
+				fila.add(art);
+			}
+			fila.exibirFila();
+		}
 	
 }
