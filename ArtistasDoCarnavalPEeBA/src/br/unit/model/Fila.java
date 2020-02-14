@@ -27,7 +27,7 @@ public class Fila {
 		}
 	}
 
-	public void limparLista() {
+	public void limparFila() {
 		artistas.clear();
 	}
 

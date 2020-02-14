@@ -278,40 +278,22 @@ public class Main_teste {
 					switch (swchk1) {
 					case 1:
 						tela.telaOrdenadoPorNome();
-						
 						artistasController.imprimirFila(1);
 						
-						tela.pularLinha();
 						break;
 					case 2:
 						tela.telaOrdenadoPorNascimento();
-						artistasController.ordenar(0, artistasController.retornarTodos().size()-1, artistasController.retornarTodos(), 2);
-						for(Artista art: artistasController.retornarTodos()) {
-							tela.linha("-");
-							System.out.println(art);
-						}
-						tela.linha("-");
-						tela.pularLinha();
+						artistasController.imprimirFila(2);
+						
 						break;
 					case 3:
 						tela.telaOrdenadoPorNascimento();
-						artistasController.ordenar(0, artistasController.retornarTodos().size()-1, artistasController.retornarTodos(), 3);
-						for(Artista art: artistasController.retornarTodos()) {
-							tela.linha("-");
-							System.out.println(art);
-						}
-						tela.linha("-");
-						tela.pularLinha();
+						artistasController.imprimirFila(3);
+					
 						break;
 					case 4:
 						tela.telaOrdenadoPorNascimento();
-						artistasController.ordenar(0, artistasController.retornarTodos().size()-1, artistasController.retornarTodos(), 4);
-						for(Artista art: artistasController.retornarTodos()) {
-							tela.linha("-");
-							System.out.println(art.getVaiTocar() + " " + art);
-						}
-						tela.linha("-");
-						tela.pularLinha();
+						artistasController.imprimirFila(4);
 						break;
 
 					}
