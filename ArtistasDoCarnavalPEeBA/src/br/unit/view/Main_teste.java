@@ -80,8 +80,7 @@ public class Main_teste {
 						+ " DIGITE NOVAMENTE AS INFORMAÇÕES DO ARTISTA");
 			} 
 			else {
-				System.out.println(
-						"Dados inv�lidos! Digite novamente o nome, cpf e logradouro do leitor: ");
+				System.out.println("");
 			}
 		}
 
@@ -233,18 +232,22 @@ public class Main_teste {
 				
 				do {
 					tela.pularLinha();
-					tela.telaRemoverArtista();
+					
 					
 					while (true) {
 						try {
+							tela.telaRemoverArtista();
 							String artDelNome = sc.nextLine();
 							artistasController.remover(artDelNome);
 							break;
 						} catch (Exception e) {
 							
 							if (e.getMessage() != null) {
-								System.out.println(e.getMessage()
-										+ " Digite novamente o nome do artista que deseja remover: ");
+								tela.linha("-");
+								tela.titulo(e.getMessage() +" "+ "Digite novamente o nome do artista que deseja remover:"  , "-");
+								tela.linha("-");
+								tela.pularLinha();
+										
 							} else {
 								System.out.println(
 										"Dados inválidos! Digite novamente nome do artista que deseja remover: ");
@@ -255,6 +258,7 @@ public class Main_teste {
 					tela.linha("-");
 					tela.msgRemoverOutroArtista();
 					fechar = sc.next().charAt(0);
+					sc.nextLine();
 				} while (fechar == 's' || fechar == 'S');
 				break;
 
@@ -286,12 +290,12 @@ public class Main_teste {
 						
 						break;
 					case 3:
-						tela.telaOrdenadoPorNascimento();
+						tela.telaOrdenadoPorCidade();
 						artistasController.imprimirFila(3);
 					
 						break;
 					case 4:
-						tela.telaOrdenadoPorNascimento();
+						tela.telaOrdenadoPorVaiTocar();
 						artistasController.imprimirFila(4);
 						break;
 					default:

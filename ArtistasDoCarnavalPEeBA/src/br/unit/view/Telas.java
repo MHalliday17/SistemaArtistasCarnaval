@@ -109,7 +109,7 @@ public class Telas {
 	//TELA DE REMOÇÃO DE ARTISTA
 	public void telaRemoverArtista() {
 		linha("=");
-		titulo("ALTERAR ARTISTA CADASTRADO", "=");
+		titulo("REMOVER ARTISTA CADASTRADO", "=");
 		linha("=");
 		System.out.println("\nDigite o nome do artista que deseja remover.\n");
 	}
@@ -136,6 +136,18 @@ public class Telas {
 	public void telaOrdenadoPorNascimento() {
 		linha("=");
 		titulo("ORDENADO POR ANO NASCIMENTO", "=");
+		linha("=");
+		pularLinha();
+	}
+	public void telaOrdenadoPorCidade() {
+		linha("=");
+		titulo("ORDENADO POR CIDADE", "=");
+		linha("=");
+		pularLinha();
+	}
+	public void telaOrdenadoPorVaiTocar() {
+		linha("=");
+		titulo("ORDENADO POR SE ELE VAI TOCAR", "=");
 		linha("=");
 		pularLinha();
 	}
